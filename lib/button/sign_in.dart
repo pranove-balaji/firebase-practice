@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class SignInButton extends StatelessWidget {
   final GlobalKey<FormState> formKey;
-  const SignInButton({super.key, required this.formKey});
+  String text = "Login";
+  SignInButton({super.key, required this.formKey, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +16,9 @@ class SignInButton extends StatelessWidget {
             if (formKey.currentState!.validate()) {}
           },
           child: Text(
-            "Log In",
+            text,
             style: TextStyle(color: Colors.white),
           )),
     );
   }
 }
-

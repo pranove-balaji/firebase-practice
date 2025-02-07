@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
 
-class UsernameField extends StatelessWidget {
-  final TextEditingController UserNameController;
+class UsernameField extends StatefulWidget {
+  final TextEditingController userNameController;
+  String label = "Username or Email";
+  String hint = "Username or Email";
 
-  const UsernameField({super.key, required this.UserNameController});
+  UsernameField(
+      {super.key,
+      required this.userNameController,
+      required this.label,
+      required this.hint});
 
+  @override
+  State<UsernameField> createState() => _UsernameFieldState();
+}
+
+class _UsernameFieldState extends State<UsernameField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,13 +27,13 @@ class UsernameField extends StatelessWidget {
           }
           return null;
         },
-        controller: UserNameController,
+        controller: widget.userNameController,
         cursorColor: Colors.grey,
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.person, color: Colors.deepPurpleAccent),
-          labelText: "Username or Email",
+          labelText: widget.label,
           labelStyle: TextStyle(color: Colors.deepPurpleAccent),
-          hintText: "Enter Your Email or Username",
+          hintText: widget.hint,
           hintStyle: TextStyle(color: Colors.grey),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),

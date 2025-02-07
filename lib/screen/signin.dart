@@ -16,6 +16,8 @@ class _SignInPageState extends State<SignInPage> {
   final _signInFormKey = GlobalKey<FormState>();
   TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  String text = "login";
+  String userlabel = "username or Email";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,6 +26,7 @@ class _SignInPageState extends State<SignInPage> {
         key: _signInFormKey,
         child: ListView(
           children: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.dark_mode)),
             SizedBox(
               height: 300,
               child: Image.asset("assets/png_assets/signin.png"),
@@ -35,9 +38,16 @@ class _SignInPageState extends State<SignInPage> {
                 style: TextStyle(fontSize: 20, color: Colors.grey),
               ),
             ),
-            UsernameField(UserNameController: userNameController),
+            UsernameField(
+              userNameController: userNameController,
+              hint: userlabel,
+              label: userlabel,
+            ),
             PasswordField(passwordController: passwordController),
-            SignInButton(formKey: _signInFormKey),
+            SignInButton(
+              formKey: _signInFormKey,
+              text: text,
+            ),
             ForgotPassword(),
           ],
         ),

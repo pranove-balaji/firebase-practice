@@ -13,21 +13,20 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
-      child: TextFormField(
-        validator: (value) {
-          if (value!.isEmpty && value != null) {
-            return "Enter valid username";
-          }
-        },
-        controller: widget.passwordController,
-        obscureText: textVisible,
-        cursorColor: Colors.grey,
-        decoration: InputDecoration(
-            prefixIcon: Icon(
-              Icons.password,
-              color: Colors.deepPurpleAccent,
-            ),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+        child: TextFormField(
+          maxLength: 6,
+          keyboardType: TextInputType.text,
+          validator: (repassword) {
+            if (repassword != Null && repassword!.isEmpty) {
+              return "Enter valid password";
+            }
+          },
+          controller: widget.passwordController,
+          obscureText: textVisible,
+          decoration: InputDecoration(
+            prefixIcon: Icon(Icons.password),
+            prefixIconColor: Colors.deepPurpleAccent,
             suffixIcon: IconButton(
                 onPressed: () {
                   setState(() {
@@ -35,25 +34,24 @@ class _PasswordFieldState extends State<PasswordField> {
                   });
                 },
                 icon: textVisible
-                    ? Icon(
-                        Icons.remove_red_eye,
-                        color: Colors.deepPurpleAccent,
-                      )
+                    ? Icon(Icons.remove_red_eye)
                     : Icon(Icons.visibility_off)),
-            labelText: "Password",
+            suffixIconColor: Colors.deepPurpleAccent,
+            labelText: "Enter Password",
             labelStyle: TextStyle(color: Colors.deepPurpleAccent),
-            hintText: "Enter Your Password",
-            hintStyle: TextStyle(color: Colors.grey),
+            hintText: "Password",
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 borderSide: BorderSide(color: Colors.grey)),
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide(color: Colors.grey)),
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Colors.grey),
+            ),
             enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: BorderSide(color: Colors.grey))),
-      ),
-    );
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Colors.grey),
+            ),
+          ),
+        ));
   }
 }

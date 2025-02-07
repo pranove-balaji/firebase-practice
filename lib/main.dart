@@ -1,4 +1,5 @@
 import 'package:firebase/screen/signin.dart';
+import 'package:firebase/screen/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SignInPage(),
+      home: AppSignUp(),
     );
   }
 }
