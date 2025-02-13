@@ -1,3 +1,4 @@
+import 'package:firebase/screen/forgotpassword.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatelessWidget {
@@ -11,7 +12,13 @@ class ForgotPassword extends StatelessWidget {
         Padding(
           padding:
               const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 0),
-          child: TextButton(onPressed: () {}, child: Text("Forgot password")),
+          child: TextButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return AppForgotPassword();
+                }));
+              },
+              child: Text("Forgot password")),
         )
       ],
     );

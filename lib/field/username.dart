@@ -22,7 +22,7 @@ class _UsernameFieldState extends State<UsernameField> {
       padding: const EdgeInsets.all(20),
       child: TextFormField(
         validator: (value) {
-          if (value == null || value.isEmpty) {
+          if (value == null || value!.isEmpty) {
             return "Enter a valid username";
           }
           return null;

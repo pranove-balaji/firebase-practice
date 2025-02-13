@@ -2,6 +2,7 @@ import 'package:firebase/button/sign_in.dart';
 import 'package:firebase/field/email.dart';
 import 'package:firebase/field/password.dart';
 import 'package:firebase/field/username.dart';
+import 'package:firebase/screen/signin.dart';
 import 'package:flutter/material.dart';
 
 class AppSignUp extends StatefulWidget {
@@ -21,6 +22,10 @@ class _AppSignUpState extends State<AppSignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.deepPurpleAccent),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Form(
@@ -47,7 +52,29 @@ class _AppSignUpState extends State<AppSignUp> {
               emailFiel(email: email),
               PasswordField(passwordController: pass),
               PasswordField(passwordController: repass),
-              SignInButton(formKey: _appKey, text: "SignUp")
+              SignInButton(formKey: _appKey, text: "SignUp"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Already have an account?",
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (builder) {
+                          return SignInPage();
+                        }));
+                      },
+                      child: Text(
+                        "Sign-In",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      )),
+                ],
+              )
             ],
           ),
         ),
