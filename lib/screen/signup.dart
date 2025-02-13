@@ -1,4 +1,5 @@
 import 'package:firebase/button/sign_in.dart';
+import 'package:firebase/button/sign_up.dart';
 import 'package:firebase/field/email.dart';
 import 'package:firebase/field/password.dart';
 import 'package:firebase/field/username.dart';
@@ -52,7 +53,11 @@ class _AppSignUpState extends State<AppSignUp> {
               emailFiel(email: email),
               PasswordField(passwordController: pass),
               PasswordField(passwordController: repass),
-              SignInButton(formKey: _appKey, text: "SignUp"),
+              SignUpButton(
+                  formKey: _appKey,
+                  text: "Signup",
+                  userName: email,
+                  userPass: pass),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
